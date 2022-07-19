@@ -19,7 +19,7 @@ Future<void> main() async {
 ///    seconds that says, "I am from the future."
 /// 2. Create a `String` variable named `message` that awaits the future to
 ///    complete with a value.
-/// 3. Surround the code above with a `try-catch` block.
+/// 3. Surround your code with a `try-catch` block.
 Future<void> exercise() async {
   print('Starting exercise...');
   try {
