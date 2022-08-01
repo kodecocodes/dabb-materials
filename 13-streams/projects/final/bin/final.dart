@@ -6,13 +6,13 @@ import 'dart:convert';
 import 'dart:io';
 
 Future<void> main() async {
-  // await readAsString();
-  // readFromStream();
-  // await readFromStreamAsynchronousForLoop();
-  // errorHandlingUsingCallbacks();
-  // await errorHandlingUsingTryCatch();
-  // cancellingStreams();
-  // transformingStreams();
+  await readAsString();
+  readFromStream();
+  await readFromStreamAsynchronousForLoop();
+  errorHandlingUsingCallbacks();
+  await errorHandlingUsingTryCatch();
+  cancellingStreams();
+  transformingStreams();
   creatingStreamsFromScratch();
 }
 
