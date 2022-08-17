@@ -6,7 +6,7 @@ import 'dart:isolate';
 
 Future<void> main() async {
   final earth = Earth();
-  earth.contactMars();
+  await earth.contactMars();
 }
 
 class Earth {
@@ -20,13 +20,11 @@ class Earth {
       _entryPoint,
       _receivePortOnEarth.sendPort,
     );
-    _listenForMessagesFromMars();
-  }
 
-  void _listenForMessagesFromMars() {
     _receivePortOnEarth.listen((Object? messageFromMars) async {
       await Future.delayed(Duration(seconds: 1));
       print('Message from Mars: $messageFromMars');
+
       if (messageFromMars is SendPort) {
         _sendToMarsPort = messageFromMars;
         _sendToMarsPort?.send('Hey from Earth');
@@ -36,8 +34,8 @@ class Earth {
         _sendToMarsPort?.send('doSomething');
         _sendToMarsPort?.send('doSomethingElse');
       } else if (messageFromMars is Map) {
-        final result = messageFromMars['result'];
         final method = messageFromMars['method'];
+        final result = messageFromMars['result'];
         print('The result of $method is $result');
       } else if (messageFromMars == 'done') {
         print('Shutting down');
@@ -46,7 +44,7 @@ class Earth {
     });
   }
 
-  Future<void> dispose() async {
+  void dispose() {
     _receivePortOnEarth.close();
     _marsIsolate?.kill();
     _marsIsolate = null;
@@ -58,9 +56,10 @@ Future<void> _entryPoint(SendPort sendToEarthPort) async {
   sendToEarthPort.send(receivePortOnMars.sendPort);
   final work = Work();
 
-  receivePortOnMars.listen((messageFromEarth) async {
+  receivePortOnMars.listen((Object? messageFromEarth) async {
     await Future.delayed(Duration(seconds: 1));
     print('Message from Earth: $messageFromEarth');
+
     if (messageFromEarth == 'Hey from Earth') {
       sendToEarthPort.send('Hey from Mars');
     } else if (messageFromEarth == 'Can you help?') {
