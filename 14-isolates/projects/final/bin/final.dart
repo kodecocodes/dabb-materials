@@ -221,7 +221,7 @@ class Earth {
   Future<void> contactMars() async {
     if (_marsIsolate != null) return;
 
-    _marsIsolate = await Isolate.spawn(
+    _marsIsolate = await Isolate.spawn<SendPort>(
       _entryPoint,
       _receiveOnEarthPort.sendPort,
     );

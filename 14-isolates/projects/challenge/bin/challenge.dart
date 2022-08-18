@@ -51,7 +51,7 @@ void fibonacci(Map<String, Object> arguments) {
   Isolate.exit(sendPort, current);
 }
 
-/// Challenge 2: Parse JSON
+/// Challenge 2: Parsing JSON
 ///
 /// Parsing large JSON strings can be CPU intensive and thus a candidate for
 /// a task to run on a separate isolate. The following JSON string isn't
