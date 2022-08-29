@@ -35,8 +35,8 @@ Future<void> exercise() async {
 
 /// Challenge 1: Spotty Internet
 ///
-/// Implement `FakeWebServer.fetchTemperature` in such a way that sometimes
-/// it completes with a value and sometimes completes with an error.
+/// Implement `FakeWebServer.fetchTemperature` so it completes sometimes 
+/// with a value and sometimes with an error. Use `Random` to help you.
 /// Use `Random` to help you.
 Future<void> challenge1() async {
   final web = FakeWebServer();
