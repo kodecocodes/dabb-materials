@@ -70,7 +70,7 @@ Future<void> challenge1() async {
 
 /// Challenge 2: Heads or Tails?
 ///
-/// Create a coin flipping service that provides a stream of ten random coin
+/// Create a coin flipping service that provides a stream of 10 random coin
 /// flips, each separated by 500 milliseconds. You use the service like so:
 ///
 /// ```
