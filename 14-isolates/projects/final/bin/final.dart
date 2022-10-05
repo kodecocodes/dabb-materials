@@ -189,7 +189,7 @@ Future<void> _entryPoint(SendPort sendToEarthPort) async {
   final work = Work();
 
   receiveOnMarsPort.listen((Object? messageFromEarth) async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future<void>.delayed(Duration(seconds: 1));
     print('Message from Earth: $messageFromEarth');
     if (messageFromEarth == 'Hey from Earth') {
       sendToEarthPort.send('Hey from Mars');
@@ -227,7 +227,7 @@ class Earth {
     );
 
     _receiveOnEarthPort.listen((Object? messageFromMars) async {
-      await Future.delayed(Duration(seconds: 1));
+      await Future<void>.delayed(Duration(seconds: 1));
       print('Message from Mars: $messageFromMars');
       // 1
       if (messageFromMars is SendPort) {
@@ -243,8 +243,8 @@ class Earth {
       }
       // 3
       else if (messageFromMars is Map) {
-        final method = messageFromMars['method'];
-        final result = messageFromMars['result'];
+        final method = messageFromMars['method'] as String;
+        final result = messageFromMars['result'] as int;
         print('The result of $method is $result');
       }
       // 4

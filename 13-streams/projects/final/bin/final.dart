@@ -47,7 +47,7 @@ void errorHandlingUsingCallbacks() {
     (data) {
       print(data.length);
     },
-    onError: (error) {
+    onError: (Object error) {
       print(error);
     },
     onDone: () {
@@ -162,7 +162,7 @@ void usingAsynchronousGenerators() {
 Stream<String> consciousness() async* {
   final data = ['con', 'scious', 'ness'];
   for (final part in data) {
-    await Future.delayed(Duration(milliseconds: 500));
+    await Future<void>.delayed(Duration(milliseconds: 500));
     yield part;
   }
 }
@@ -174,7 +174,7 @@ void usingStreamControllers() {
 
   stream.listen(
     (value) => print(value),
-    onError: (error) => print(error),
+    onError: (Object error) => print(error),
     onDone: () => print('Sink closed'),
   );
 

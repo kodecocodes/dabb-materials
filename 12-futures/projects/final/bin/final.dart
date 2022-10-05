@@ -41,7 +41,7 @@ Future<void> usingCallbacks() async {
         (value) => print('Value: $value'),
       )
       .catchError(
-        (error) => print('Error: $error'),
+        (Object error) => print('Error: $error'),
       )
       .whenComplete(
         () => print('Future is complete'),
@@ -91,7 +91,7 @@ Future<void> asynchronousNetworkRequest() async {
       throw HttpException('$statusCode');
     }
     final jsonString = response.body;
-    final jsonMap = jsonDecode(jsonString);
+    dynamic jsonMap = jsonDecode(jsonString);
     final todo = Todo.fromJson(jsonMap);
     print(todo);
   } on SocketException catch (error) {
@@ -111,7 +111,7 @@ class Todo {
     required this.completed,
   });
 
-  factory Todo.fromJson(Map<String, Object?> jsonMap) {
+  factory Todo.fromJson(Map<String, dynamic> jsonMap) {
     return Todo(
       userId: jsonMap['userId'] as int,
       id: jsonMap['id'] as int,

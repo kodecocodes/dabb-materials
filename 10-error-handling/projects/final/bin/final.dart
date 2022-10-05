@@ -72,7 +72,7 @@ void catchingExceptions() {
   // const json = 'abc';
   const json = '{"name":"bob"}';
   try {
-    final result = jsonDecode(json);
+    dynamic result = jsonDecode(json);
     print(result);
   } catch (e) {
     print('There was an error.');
@@ -83,7 +83,7 @@ void catchingExceptions() {
 void handlingSpecificExceptions() {
   const json = 'abc';
   try {
-    final result = jsonDecode(json);
+    dynamic result = jsonDecode(json);
     print(result);
   } on FormatException {
     print('The JSON string was invalid.');

@@ -35,7 +35,7 @@ Future<void> exercise() async {
 
 /// Challenge 1: Spotty Internet
 ///
-/// Implement `FakeWebServer.fetchTemperature` so it completes sometimes 
+/// Implement `FakeWebServer.fetchTemperature` so it completes sometimes
 /// with a value and sometimes with an error. Use `Random` to help you.
 /// Use `Random` to help you.
 Future<void> challenge1() async {
@@ -143,7 +143,7 @@ Future<void> challenge3() async {
     final statusCode = response.statusCode;
     if (statusCode == 200) {
       final rawJsonString = response.body;
-      final jsonList = jsonDecode(rawJsonString);
+      dynamic jsonList = jsonDecode(rawJsonString);
       for (var element in jsonList) {
         final comment = Comment.fromJson(element);
         commentList.add(comment);
@@ -171,7 +171,7 @@ class Comment {
     required this.body,
   });
 
-  factory Comment.fromJson(Map<String, Object?> jsonMap) {
+  factory Comment.fromJson(Map<String, dynamic> jsonMap) {
     return Comment(
       postId: jsonMap['postId'] as int,
       id: jsonMap['id'] as int,

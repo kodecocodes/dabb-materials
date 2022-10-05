@@ -5,7 +5,7 @@ void main() {
   challenge1();
 }
 
-/// Challenge 1: Time to code
+/// Challenge 1: Time to Code
 ///
 /// Dart has a `Duration` class for expressing lengths of time. Make an
 /// extension on `int` so that you can express a duration like so:

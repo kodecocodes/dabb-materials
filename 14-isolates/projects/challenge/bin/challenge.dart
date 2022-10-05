@@ -32,7 +32,7 @@ Future<void> challenge1() async {
     arguments,
   );
 
-  final message = await receivePort.first;
+  final message = await receivePort.first as int;
   print('Fibonacci number $n is $message.');
 }
 
@@ -86,6 +86,6 @@ const jsonString = '''
 ''';
 
 void _entryPoint(SendPort sendPort) {
-  final jsonMap = jsonDecode(jsonString);
+  dynamic jsonMap = jsonDecode(jsonString);
   Isolate.exit(sendPort, jsonMap);
 }
