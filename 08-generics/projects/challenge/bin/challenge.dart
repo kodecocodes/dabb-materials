@@ -35,7 +35,7 @@ void challenge1() {
 }
 
 class IntStack {
-  List<int> _list = [];
+  final List<int> _list = [];
 
   void push(int value) => _list.add(value);
 
@@ -76,7 +76,7 @@ void challenge2() {
 }
 
 class Stack<E> {
-  List<E> _list = [];
+  final List<E> _list = [];
 
   void push(E value) => _list.add(value);
 
