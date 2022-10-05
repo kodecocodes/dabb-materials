@@ -13,7 +13,7 @@ void main() {
   challenge3();
 }
 
-/// Extending classes: Exercise 1
+/// Extending Classes: Exercise 1
 ///
 /// Create a class named `Fruit` with a `String` field named `color` and a
 /// method named `describeColor` which uses `color` to print a message.
@@ -24,13 +24,13 @@ void extendingClassesExercise1() {
 
 class Fruit {
   Fruit(this.color);
-  final color;
+  final String color;
   void describeColor() {
     print("This fruit's color is $color.");
   }
 }
 
-/// Extending classes: Exercise 2
+/// Extending Classes: Exercise 2
 ///
 /// Create a subclass of `Fruit` named `Melon` and then create two `Melon`
 /// subclasses named `Watermelon` and `Cantaloupe`.
@@ -54,7 +54,7 @@ class Cantaloupe extends Melon {
   Cantaloupe(super.color);
 }
 
-/// Extending classes: Mini-exercise 3
+/// Extending Classes: Exercise 3
 ///
 /// Override `describeColor` in the `Watermelon` class to vary the output.
 void extendingClassesExercise3() {
@@ -140,16 +140,20 @@ void challenge1() {
 
   final platypi = [willi, billi, nilli, jilli, silli];
 
-  platypi.forEach((platypus) => print(platypus.weight));
+  for (final platypus in platypi) {
+    print(platypus.weight);
+  }
   print('---');
 
   platypi.sort();
-  platypi.forEach((platypus) => print(platypus.weight));
+  for (final platypus in platypi) {
+    print(platypus.weight);
+  }
 }
 
-class Platypus extends Animal with EggLayer implements Comparable {
-  Platypus({this.weight});
-  final weight;
+class Platypus extends Animal with EggLayer implements Comparable<Platypus> {
+  Platypus({required this.weight});
+  final double weight;
 
   @override
   void eat() {
@@ -162,7 +166,7 @@ class Platypus extends Animal with EggLayer implements Comparable {
   }
 
   @override
-  int compareTo(other) {
+  int compareTo(Platypus other) {
     if (weight > other.weight) {
       return 1;
     } else if (weight < other.weight) {
