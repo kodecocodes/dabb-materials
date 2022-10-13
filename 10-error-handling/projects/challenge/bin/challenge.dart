@@ -28,8 +28,9 @@ void challenge1() {
 
 /// Challenge 2: Five Digits, No More, No Less
 ///
-/// Create a custom exception named `InvalidPostalCode`. Validate that a
-/// postal code is five digits, and if it isn't, throw the exception.
+/// - Create a custom exception named `InvalidPostalCode`.
+/// - Validate that a postal code is five digits
+/// - If it isn't, throw the exception.
 void challenge2() {
   // You could also solve this with an `int` type.
   const postalCode = '123456';
