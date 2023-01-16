@@ -38,7 +38,7 @@ Mongolia''';
   print(countriesList);
 }
 
-/// Basic String Manipulation: Exercise 1
+/// Basic String Manipulation: Exercise 2
 ///
 /// Find an emoji online to replace `:]` with in the following text:
 ///
