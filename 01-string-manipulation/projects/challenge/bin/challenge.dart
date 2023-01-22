@@ -89,10 +89,11 @@ void buildingStringsExercise() {
 /// Validate that a credit card number contains only numbers and is
 /// exactly 16 digits long.
 void stringValidationExercise() {
-  final regex = RegExp(r'[0-9]{16}');
+  final regex = RegExp(r'^[0-9]{16}$');
   print(regex.hasMatch('1111222233334444')); // true
   print(regex.hasMatch('123')); // false
   print(regex.hasMatch('aaaabbbbccccdddd')); // false
+  print(regex.hasMatch('12341234123412345')); //false
 }
 
 /// Challenge 1: Email Validation
