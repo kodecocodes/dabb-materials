@@ -93,7 +93,7 @@ void stringValidationExercise() {
   print(regex.hasMatch('1111222233334444')); // true
   print(regex.hasMatch('123')); // false
   print(regex.hasMatch('aaaabbbbccccdddd')); // false
-  print(regex.hasMatch('12341234123412345')); //false
+  print(regex.hasMatch('12341234123412345')); // false
 }
 
 /// Challenge 1: Email Validation
