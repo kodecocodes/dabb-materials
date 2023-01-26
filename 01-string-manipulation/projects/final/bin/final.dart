@@ -229,7 +229,7 @@ void validatePassword() {
     print('Your password must be at least 12 characters long!');
   }
 
-  final goodLength = RegExp(r'.{12,}');
+  final goodLength = RegExp(r'^.{12,}$');
   if (!password.contains(goodLength)) {
     print('Your password must be at least 12 characters long!');
   }
