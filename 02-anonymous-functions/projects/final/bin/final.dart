@@ -109,14 +109,14 @@ void reducing() {
 
 void folding() {
   const evens = [2, 4, 6, 8, 10, 12];
-  final total = evens.fold<int>(
+  final total = evens.fold(
     0,
     (sum, element) => sum + element,
   );
   print(total);
 
   final emptyList = <int>[];
-  final result = emptyList.fold<int>(
+  final result = emptyList.fold(
     0,
     (sum, element) => sum + element,
   );

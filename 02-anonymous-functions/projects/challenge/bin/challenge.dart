@@ -86,7 +86,7 @@ void challenge1() {
 
   final totalBeginningWithS = animals.keys
       .where((key) => key.startsWith('s'))
-      .fold<int>(0, (int sum, key) => sum + (animals[key] ?? 0));
+      .fold(0, (int sum, key) => sum + (animals[key] ?? 0));
   print(totalBeginningWithS);
 }
 
